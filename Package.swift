@@ -19,15 +19,15 @@ let package = Package(
     .library(name: "Apollo", targets: ["Apollo"]),
     .library(name: "ApolloAPI", targets: ["ApolloAPI"]),
     .library(name: "Apollo-Dynamic", type: .dynamic, targets: ["Apollo"]),
-    .library(name: "ApolloSQLite", targets: ["ApolloSQLite"]),
+    // .library(name: "ApolloSQLite", targets: ["ApolloSQLite"]),
     .library(name: "ApolloWebSocket", targets: ["ApolloWebSocket"]),
     .library(name: "ApolloTestSupport", targets: ["ApolloTestSupport"]),
     .plugin(name: "InstallCLI", targets: ["Install CLI"])
   ],
   dependencies: [
-    .package(
-      url: "https://github.com/stephencelis/SQLite.swift.git",
-      .upToNextMajor(from: "0.15.1")),
+    // .package(
+    //   url: "https://github.com/stephencelis/SQLite.swift.git",
+    //   .upToNextMajor(from: "0.15.1")),
   ],
   targets: [
     .target(
@@ -48,17 +48,17 @@ let package = Package(
       ],
       swiftSettings: [.enableUpcomingFeature("ExistentialAny")]
     ),
-    .target(
-      name: "ApolloSQLite",
-      dependencies: [
-        "Apollo",
-        .product(name: "SQLite", package: "SQLite.swift"),
-      ],
-      resources: [
-        .copy("Resources/PrivacyInfo.xcprivacy")
-      ],
-      swiftSettings: [.enableUpcomingFeature("ExistentialAny")]
-    ),
+    // .target(
+    //   name: "ApolloSQLite",
+    //   dependencies: [
+    //     "Apollo",
+    //     .product(name: "SQLite", package: "SQLite.swift"),
+    //   ],
+    //   resources: [
+    //     .copy("Resources/PrivacyInfo.xcprivacy")
+    //   ],
+    //   swiftSettings: [.enableUpcomingFeature("ExistentialAny")]
+    // ),
     .target(
       name: "ApolloWebSocket",
       dependencies: [
